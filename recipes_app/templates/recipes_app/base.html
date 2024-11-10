@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Template</h1>
+    <ul>
+        {% for recipe in recipes %}
+        <li> {{recipe.title}}</li>
+        <ul>
+            <span><b>Ingredients: </b></span>
+            {% for ingredient in recipe.ingredients %}
+                <li>{{ingredient}}</li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </ul>
+   
+    
+    
+</body>
+</html>
