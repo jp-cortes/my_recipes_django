@@ -2,24 +2,33 @@ from django.db import models
 
 # Create your models here.
 class Category(models.Model):
-    title = models.TextField(max_length=100, verbose_name="category", null=False)
+    title = models.TextField(max_length=100, verbose_name="category", null=False, verbose_name="title")
 
     #recipes
+    def __str__(self):
+        return self.title
 
 
 
 class Recipe(models.Model):
     name =  models.TextField(max_length=200, verbose_name="name", null=False)
-    images = models.JSONField(null=True)
-    images = models.JSONField(null=False)
+    images = models.ImageField(upload_to="logos", null=True, blank=True)
+    ingredients = models.JSONField(null=False)
     preparation = models.TextField(max_length=900, null=False)
     #category_id
+
+    def __str__(self):
+        return self.name
 
 
 
 class User(models.Model):
-    name = models.TextField(max_length=100, null=False)
-    email = models.TextField(max_length=100, null=False)
+    name = models.TextField(max_length=100, null=False, verbose_name="name")
+    lastname = models.TextField(max_length=100, null=False, verbose_name="lastname")
+    email = models.TextField(max_length=100, null=False, verbose_name="email")
     password = models.TextField(max_length=100, null=False)
 
     role = models.TextField(max_length=100, null=False)
+
+    def __str__(self):
+        return self.name
