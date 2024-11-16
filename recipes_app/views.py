@@ -1,6 +1,7 @@
-from typing import Any
-from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import TemplateView
+from django.views import generic
+from .forms import RecipeForm
 
 # Create your views here.
 class RecipesView(TemplateView):
@@ -23,3 +24,13 @@ class RecipesView(TemplateView):
         }
         return context
 
+
+class RecipesFormView(generic.FormView):
+    template_name="recipes_app/add_recipe.html"
+    form_class=RecipeForm
+    success_url=reverse_lazy("add_recipe")
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+    

@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Category(models.Model):
-    title = models.TextField(max_length=100, verbose_name="category", null=False, verbose_name="title")
+    title = models.TextField(max_length=100, verbose_name="category", null=False)
 
     #recipes
     def __str__(self):
