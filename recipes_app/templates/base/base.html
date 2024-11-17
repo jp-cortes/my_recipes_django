@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Template page{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/home">Home</a>
+            <div>
+                <span>Shopping cart</span>
+            </div>
+        </nav>
+    </header>
+<main>
+    <h1>Template</h1>
+        
+
+    {% block template %}
+    {% endblock  %}
+</main>
+    
+<footer>
+    <nav>
+        <div>About</div>
+        <div>Made By JPCORTES</div>
+    </nav>
+</footer>
+</body>
+</html>

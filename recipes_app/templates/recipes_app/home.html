@@ -1,0 +1,16 @@
+{% extends "base/base.html" %}
+{% block title %} Home page {% endblock %}
+  {% block template %}
+  <ul>
+    All recipes
+    {% for recipe in recipes %}
+    <li> {{recipe.name}}</li>
+    <ul>
+        <span><b>Ingredients: </b></span>
+        <p>{{ recipe.ingredients}}</p>
+        <p>{{ recipe.preparation}}</p>
+    </ul>
+    {% endfor %}
+</ul>
+  {% endblock  %}
+        

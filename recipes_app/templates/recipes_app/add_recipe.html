@@ -1,4 +1,6 @@
-{% extends "recipes_app/base.html" %}
+{% extends "base/base.html" %}
+
+{% block title %} Create Recipe {% endblock %}
 
   {% block template %}
   <form action="{% url "add_recipe" %}" method="post">
