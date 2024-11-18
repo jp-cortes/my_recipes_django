@@ -5,27 +5,27 @@ from .forms import RecipeForm
 from .models import Recipe, Category
 
 # Create your views here.
-class BaseView(TemplateView):
-    template_name = "base/base.html"
+class HomeView(TemplateView):
+    template_name = "recipes_app/home.html"
 
-    def get_context_data(self):
-        categories = [
-            {"title":"Vegetaria"},
-            {"title":"Vegan"},
-            {"title":"Seafood"},
-            {"title":"Keto"},
-            {"title":"Low calories"},
-            {"title":"High calories"},
-                   ]
-        # categories = Category.objects.all()
-        context = {
-            "categories": categories
-        }
-        return context
+    # def get_context_data(self):
+    #     categories = [
+    #         {"title":"Vegetarian"},
+    #         {"title":"Vegan"},
+    #         {"title":"Seafood"},
+    #         {"title":"Keto"},
+    #         {"title":"Low calories"},
+    #         {"title":"High calories"},
+    #                ]
+    #     # categories = Category.objects.all()
+    #     context = {
+    #         "categories": categories
+    #     }
+    #     return context
     
 
 class RecipesView(TemplateView):
-    template_name = "recipes_app/home.html"
+    template_name = "recipes_app/all_recipes.html"
 
     def get_context_data(self):
         recipes_example = [
