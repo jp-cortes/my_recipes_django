@@ -4,6 +4,7 @@ from django.db import models
 class Category(models.Model):
     title = models.TextField(max_length=100, verbose_name="category", null=False)
     images = models.ImageField(upload_to="logos", null=True, blank=True)
+    created_on = models.DateField(auto_now=True)
 
     #recipes
     def __str__(self):
@@ -17,6 +18,7 @@ class Recipe(models.Model):
     ingredients = models.JSONField(null=False)
     preparation = models.TextField(max_length=900, null=False)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True )
+    created_on = models.DateField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -28,6 +30,7 @@ class User(models.Model):
     lastname = models.TextField(max_length=100, null=False, verbose_name="lastname")
     email = models.TextField(max_length=100, null=False, verbose_name="email")
     password = models.TextField(max_length=100, null=False)
+    created_on = models.DateField(auto_now=True)
 
     role = models.TextField(max_length=100, null=False)
 
