@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class Category(models.Model):
     title = models.TextField(max_length=100, verbose_name="category", null=False)
+    images = models.ImageField(upload_to="logos", null=True, blank=True)
 
     #recipes
     def __str__(self):
@@ -15,7 +16,7 @@ class Recipe(models.Model):
     images = models.ImageField(upload_to="logos", null=True, blank=True)
     ingredients = models.JSONField(null=False)
     preparation = models.TextField(max_length=900, null=False)
-    #category_id
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True )
 
     def __str__(self):
         return self.name
