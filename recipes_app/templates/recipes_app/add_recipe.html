@@ -3,10 +3,31 @@
 {% block title %} Create Recipe {% endblock %}
 
   {% block template %}
-  <form action="{% url "add_recipe" %}" method="post">
+  <form class="max-w-sm mx-auto" action="{% url "add_recipe" %}" method="post">
     {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Create</button>
+    <div class="mt-5">
+      {{form.name.errors}}
+      {{form.name.label_tag}}
+      {{form.name}}
+    </div>
+    <div class="mt-5">
+      {{form.images.errors}}
+      {{form.images.label_tag}}
+      {{form.images}}
+    </div>
+    <div class="mt-5">
+      {{form.ingredients.errors}}
+      {{form.ingredients.label_tag}}
+      {{form.ingredients}}
+    </div>
+    <div class="mt-5">
+      {{form.preparation.errors}}
+      {{form.preparation.label_tag}}
+      {{form.preparation}}
+    </div>
+    <button
+    class=" mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+     type="submit">Create</button>
   </form>
   {% endblock  %}
         

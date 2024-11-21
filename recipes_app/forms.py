@@ -2,10 +2,10 @@ from django import forms
 from .models import Recipe
 
 class RecipeForm(forms.Form):
-    name = forms.CharField(max_length=100, label="name")
+    name = forms.CharField(max_length=100, label="name", widget=forms.TextInput(attrs={"placeholder" : "Pizza Margarita"}))
     images = forms.ImageField(label="images", required=False)
-    ingredients = forms.CharField(label="ingredients")
-    preparation = forms.CharField(max_length=900, label="preparation")
+    ingredients = forms.CharField(label="ingredients", widget=forms.TextInput(attrs={"placeholder" : "100gr white cheese, 2 eggs, ..."}))
+    preparation = forms.CharField(label="preparation", widget=forms.Textarea(attrs={"placeholder" : "Mix all ingredients..."}))
 
 
     def save(self):
