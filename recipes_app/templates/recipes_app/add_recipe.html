@@ -3,26 +3,26 @@
 {% block title %} Create Recipe {% endblock %}
 
   {% block template %}
-  <form class="max-w-sm mx-auto" action="{% url "add_recipe" %}" method="post">
+  <form class="max-w-sm mx-auto my-10 bg-gray-900 p-8 rounded-lg grid justify-center" action="{% url "add_recipe" %}" method="post">
     {% csrf_token %}
-    <div class="mt-5">
+    <div class="mt-5 capitalize">
       {{form.name.errors}}
-      {{form.name.label_tag}}
+      <div class="text-white mb-4">{{form.name.label_tag}}</div>
       {{form.name}}
     </div>
-    <div class="mt-5">
+    <div class="mt-5 capitalize">
       {{form.images.errors}}
-      {{form.images.label_tag}}
+      <div class="text-white mb-4">{{form.images.label_tag}}</div>
       {{form.images}}
     </div>
-    <div class="mt-5">
+    <div class="mt-5 capitalize">
       {{form.ingredients.errors}}
-      {{form.ingredients.label_tag}}
+      <div class="text-white mb-4">{{form.ingredients.label_tag}}</div>
       {{form.ingredients}}
     </div>
-    <div class="mt-5">
+    <div class="mt-5 capitalize">
       {{form.preparation.errors}}
-      {{form.preparation.label_tag}}
+      <div class="text-white mb-4">{{form.preparation.label_tag}}</div>
       {{form.preparation}}
     </div>
     <button
