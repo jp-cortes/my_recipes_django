@@ -22,5 +22,6 @@ from recipes_app.views import HomeView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', HomeView.as_view()),
-    path('recipes/', include('recipes_app.urls'))
+    path('recipes/', include('recipes_app.urls')),
+    path('users/', include('users.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
