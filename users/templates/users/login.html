@@ -1,9 +1,39 @@
 {% extends "base/base.html" %}
 {% block title %} login {% endblock %}
 {% block template %}
-<form action="" method="post">
-{% csrf_token %}
-    {{form.as_p}}
-    <button type='submit'>Login</button>
-</form>
-{% endblock %}
+<div class="relative flex lg:h-screen lg:items-center">
+    <div class="w-full lg:mr-40 px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
+        <div class="mx-auto max-w-lg text-center">
+            <h1 class="text-2xl font-bold sm:text-3xl">Sign in</h1>
+
+            <p class="mt-4 text-gray-500">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla eaque error neque
+            ipsa culpa  autem, at itaque nostrum!
+            </p>
+        </div>
+
+        <form class="mx-auto mb-0 mt-8 max-w-md space-y-4" action="" method="post">
+            {% csrf_token %}
+
+            {{form}}
+            <button type='submit'>Login</button>
+
+        </form>
+
+        <p class="text-center text-sm text-gray-500 mt-4">
+        Don't have an account?
+        <a class="underline" href={% url "register" %}>Sign up</a>
+        </p>
+
+    </div>
+
+    <div class="relative h-64 w-full sm:h-96 lg:h-full w-1/2">
+        <img
+          alt="image"
+          src=""
+          class="absolute inset-0 h-full w-full object-cover"
+        />
+    </div>
+
+</div>
+{% endblock template %}
