@@ -7,7 +7,7 @@
     <title>{% block title %} Base {% endblock %}</title>
 </head>
 <body>
-    <header class="mb-4">
+    <header>
         
 
 <nav class="border-gray-200 bg-gray-900">
@@ -59,9 +59,6 @@
   
     </header>
 <main>
-    {% if user.is_authenticated %}
-    Hello, {{user.username}}
-    {% endif %}
     <div class="container mx-auto"> 
         {% block template %}
         {% endblock  %}
