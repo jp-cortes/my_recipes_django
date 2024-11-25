@@ -7,4 +7,4 @@ class RegisterView(generic.CreateView):
     template_name = "users/register.html"
     success_url = reverse_lazy("login")
 
-# Create your views here.
+
