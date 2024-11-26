@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{% block title %}template{% endblock title %}</title>
+</head>
+<body>
+    <main>
+        <div class="relative flex lg:flex-nowrap sm:flex-wrap lg:h-screen lg:items-center">
+            <a href={% url "home" %} class=" absolute top-0 left-0 flex items-center">
+                <img src="" class="h-8" alt="Recipes Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap">Logo</span>
+            </a>
+            <div class="w-full lg:mr-40 px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
+                {% block form_view %}
+                <div class="mx-auto max-w-lg text-center">
+                    <h1 class="text-2xl font-bold sm:text-3xl">Sign in</h1>
+        
+                    <p class="mt-4 text-gray-500">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla eaque error neque
+                    ipsa culpa  autem, at itaque nostrum!
+                    </p>
+                </div>
+        
+                <form class="mx-auto mb-0 mt-8 max-w-md space-y-4" action="" method="post">
+                    {% csrf_token %}
+        
+                    <div class="flex flex-col justify-center text-center">
+                        <div class="mb-4">
+                            {{form.username.label_tag}}
+                        </div>
+                        <div class="[&>input]:bg-gray-50 [&>input]:border [&>input]:border-gray-300 [&>input]:text-gray-900 [&>input]:text-sm [&>input]:rounded-lg [&>input]:focus:ring-blue-500 [&>input]:focus:border-blue-500 [&>input]:block [&>input]:w-full [&>input]:p-2.5">
+                            {{form.username}}
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center text-center">
+                        <div class="mb-4">
+                            {{form.password.label_tag}}
+                        </div>
+                        <div class="[&>input]:bg-gray-50 [&>input]:border [&>input]:border-gray-300 [&>input]:text-gray-900 [&>input]:text-sm [&>input]:rounded-lg [&>input]:focus:ring-blue-500 [&>input]:focus:border-blue-500 [&>input]:block [&>input]:w-full [&>input]:p-2.5">
+                            {{form.password}}
+                        </div>
+                    </div>
+                    <button 
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                    type='submit'>Login</button>
+        
+                </form>
+        
+                <p class="text-center text-sm text-gray-500 mt-4">
+                Don't have an account?
+                <a class="underline" href={% url "register" %}>Sign up</a>
+                </p>
+                {% endblock form_view %}
+            </div>
+        
+            <div class="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
+                <img
+                  alt="image"
+                  src="https://images.pexels.com/photos/259763/pexels-photo-259763.jpeg"
+                  class="inset-0 h-full w-full object-content"
+                />
+            </div>
+        
+        </div>
+    </main>
+</body>
+</html>
