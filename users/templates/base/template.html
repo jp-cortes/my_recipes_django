@@ -7,11 +7,12 @@
     <title>{% block title %}template{% endblock title %}</title>
 </head>
 <body>
+    {% load svg %}
     <main>
         <div class="relative flex lg:flex-nowrap sm:flex-wrap lg:h-screen lg:items-center">
             <a href={% url "home" %} class=" absolute top-0 left-0 flex items-center">
-                <img src="" class="h-8" alt="Recipes Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap">Logo</span>
+                {% svg 'black_logo' class="css-class" height="50" width="50" %}
+                <span class="self-center text-2xl font-semibold whitespace-nowrap">My Recipes</span>
             </a>
             <div class="w-full lg:mr-40 px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
                 {% block form_view %}
