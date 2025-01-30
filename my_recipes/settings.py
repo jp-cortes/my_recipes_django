@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dj_svg',
     'recipes_app',
-    'users'
+    'users',
+    'menus'
 ]
 
 MIDDLEWARE = [

@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', HomeView.as_view(), name="home"),
     path('recipes/', include('recipes_app.urls')),
-    path('users/', include('users.urls'))
+    path('users/', include('users.urls')),
+    path('menus/', include('menus.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
