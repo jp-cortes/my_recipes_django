@@ -1,0 +1,26 @@
+{% extends "base/base.html" %}
+{% block title %} My Menu page {% endblock %}
+  {% block template %}
+<div class="mt-8 text-center">
+
+  <div class="m-4">
+    {% if user.is_authenticated and user.id == menu.user.id %}
+    
+    {{menu.user.username}}
+    {{menu.created_on|date}}
+
+  {% for my_recipe in menu.menurecipe_set.all  %}
+    {{ my_recipe.recipe.name}}
+
+
+    
+  {% endfor %}
+    {% else %}
+      {% comment %} {% empty %} {% endcomment %}
+      You have no recipes
+
+    {% endif %}
+  </div>
+  
+</div>
+  {% endblock template %}
