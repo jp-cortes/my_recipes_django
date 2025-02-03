@@ -9,12 +9,30 @@
     {{menu.user.username}}
     {{menu.created_on|date}}
 
-  {% for my_recipe in menu.menurecipe_set.all  %}
-    {{ my_recipe.recipe.name}}
-
-
+    <div class="mx-auto">
+      <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+        <thead class="text-center">
+          <tr>
+            <th class="w-1/4 whitespace-nowrap px-4 py-2 font-medium text-gray-900">Name</th>
+            <th class="w-1/4 px-4 py-2 font-medium text-gray-900">ingrediens</th>
+            <th class="w-1/4 whitespace-nowrap px-4 py-2 font-medium text-gray-900">Preparation</th>
+            <th class="w-1/4 whitespace-nowrap px-4 py-2 font-medium text-gray-900">Category</th>
+          </tr>
+        </thead>
     
-  {% endfor %}
+        <tbody class="divide-y divide-gray-200">
+          {% for my_recipe in menu.menurecipe_set.all  %}
+          <tr>
+            <td class="w-1/4 whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ my_recipe.recipe.name}}</td>
+            <td class="w-1/4 whitespace-nowrap px-4 py-2 text-gray-700">{{ my_recipe.recipe.ingredients}}</td>
+            <td class="w-1/4 whitespace-nowrap px-4 py-2 text-gray-700">{{ my_recipe.recipe.preparation}}</td>
+            <td class="w-1/4 whitespace-nowrap px-4 py-2 text-gray-700">{{ my_recipe.recipe.category}}</td>
+          </tr>          
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
     {% else %}
       {% comment %} {% empty %} {% endcomment %}
       You have no recipes
