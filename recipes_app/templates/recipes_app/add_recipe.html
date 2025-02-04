@@ -26,6 +26,11 @@
         <div class="text-white mb-4">{{form.preparation.label_tag}}</div>
         {{form.preparation}}
       </div>
+      <div class="mt-5 capitalize">
+        {{form.category.errors}}
+        <div class="text-white mb-4">{{form.category.label_tag}}</div>
+        {{form.category}}
+      </div>
       <button
       class=" mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
        type="submit">Create</button>

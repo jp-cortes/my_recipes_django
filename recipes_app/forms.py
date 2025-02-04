@@ -6,7 +6,7 @@ class RecipeForm(forms.Form):
     images = forms.ImageField(label="images", required=False)
     ingredients = forms.CharField(label="ingredients", widget=forms.TextInput(attrs={"placeholder" : "100gr white cheese, 2 eggs, ...", "class": "w-full rounded-lg p-2"}))
     preparation = forms.CharField(label="preparation", widget=forms.Textarea(attrs={"placeholder" : "Mix all ingredients...", "class": "w-full rounded-lg p-2"}))
-
+    category = forms.CharField(max_length=100, label="category", widget=forms.TextInput(attrs={"placeholder" : "Vegetarian", "class": "w-full rounded-lg p-2"}))
 
     def save(self):
         Recipe.objects.create(
