@@ -4,5 +4,6 @@ from .views import MyMenuView, CreateMenuRecipeView
 
 urlpatterns = [
     path('my-menu', MyMenuView.as_view(), name="my_menu"),
-    path('create-menu', CreateMenuRecipeView.as_view(), name="create_menu"),    
+    path('create-menu', CreateMenuRecipeView.as_view(), name="create_menu"), 
+    path('remove-recipe/<recipe_id>', CreateMenuRecipeView.delete_recipe, name='remove_recipe'  )   
 ]

@@ -1,6 +1,7 @@
 from django.views.generic import DateDetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 from .models import Menu
 from .forms import MenuRecipesForm
 
@@ -27,3 +28,9 @@ class CreateMenuRecipeView(LoginRequiredMixin, CreateView):
         form.instance.quantity = 1
         form.save()
         return super().form_valid(form)
+    
+    def delete_recipe(self, recipe_id):
+        recipe = Menu.objects.get(pk=recipe_id)
+        # Menu.objects.exclude(self, recipe)
+        recipe.delete()
+        return redirect('my_menu')
