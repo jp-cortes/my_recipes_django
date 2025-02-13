@@ -1,8 +1,11 @@
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 from django.views import generic
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from .forms import RecipeForm
 from .models import Recipe, Category
+from .serializers import RecipeSerializer
 
 # Create your views here.
 class HomeView(TemplateView):
@@ -55,3 +58,17 @@ class RecipesFormView(generic.FormView):
         form.save()
         return super().form_valid(form)
     
+class RecipeListApi(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request):
+        recipes = Recipe.objects.all()
+        serializer =  RecipeSerializer(recipes, many=True)
+        return Response(serializer.data)
+    
+    def get_recipe(self, request, pk=None, format=None):
+        pk = id
+        recipe = Recipe.objects.get(id=id)
+        serializer =  RecipeSerializer(recipe)
+        return Response(serializer.data)

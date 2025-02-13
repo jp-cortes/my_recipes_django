@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dj_svg',
+    'rest_framework',
     'recipes_app',
     'users',
     'menus'
