@@ -1,7 +1,8 @@
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 from django.views import generic
-from rest_framework.views import APIView
+from django.http import Http404 
+from rest_framework.views import APIView, status
 from rest_framework.response import Response
 from .forms import RecipeForm
 from .models import Recipe, Category
@@ -67,8 +68,33 @@ class RecipeListApi(APIView):
         serializer =  RecipeSerializer(recipes, many=True)
         return Response(serializer.data)
     
-    def get_recipe(self, request, pk=None, format=None):
-        pk = id
-        recipe = Recipe.objects.get(id=id)
-        serializer =  RecipeSerializer(recipe)
+
+        
+
+class RecipeDetail(APIView):
+    """
+    Retrieve, instance.
+    """
+    def get_object(self, pk):
+        try:
+            return Recipe.objects.get(pk=pk)
+        except Recipe.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        recipe = self.get_object(pk)
+        serializer = RecipeSerializer(recipe)
         return Response(serializer.data)
+    
+    def put(self, request, pk, format=None):
+        recipe = self.get_object(pk)
+        serializer = RecipeSerializer(recipe, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        recipe = self.get_object(pk)
+        recipe.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
