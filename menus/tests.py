@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 
 
 class MenuRecipeTest(TestCase):
-
+# test for my my_menu route
     def test_no_logged_user_should_redirect(self):
         url = reverse("my_menu")
         response = self.client.get(url)

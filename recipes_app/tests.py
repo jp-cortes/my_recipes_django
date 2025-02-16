@@ -5,7 +5,7 @@ from .models import Recipe, Category
 
 
 class RecipeListViewTest(TestCase):
-    
+    #test for route all recipes
     def test_should_return_200(self):
         url = reverse("all_recipes")
         response = self.client.get(url)
