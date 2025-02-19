@@ -7,36 +7,59 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.TextField(max_length=100, verbose_name='category')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.TextField(max_length=100, verbose_name="category")),
             ],
         ),
         migrations.CreateModel(
-            name='Recipe',
+            name="Recipe",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.TextField(max_length=200, verbose_name='name')),
-                ('images', models.ImageField(blank=True, null=True, upload_to='logos')),
-                ('ingredients', models.JSONField()),
-                ('preparation', models.TextField(max_length=900)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.TextField(max_length=200, verbose_name="name")),
+                ("images", models.ImageField(blank=True, null=True, upload_to="logos")),
+                ("ingredients", models.JSONField()),
+                ("preparation", models.TextField(max_length=900)),
             ],
         ),
         migrations.CreateModel(
-            name='User',
+            name="User",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.TextField(max_length=100, verbose_name='name')),
-                ('lastname', models.TextField(max_length=100, verbose_name='lastname')),
-                ('email', models.TextField(max_length=100, verbose_name='email')),
-                ('password', models.TextField(max_length=100)),
-                ('role', models.TextField(max_length=100)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.TextField(max_length=100, verbose_name="name")),
+                ("lastname", models.TextField(max_length=100, verbose_name="lastname")),
+                ("email", models.TextField(max_length=100, verbose_name="email")),
+                ("password", models.TextField(max_length=100)),
+                ("role", models.TextField(max_length=100)),
             ],
         ),
     ]

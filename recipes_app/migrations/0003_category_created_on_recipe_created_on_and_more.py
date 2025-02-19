@@ -7,23 +7,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('recipes_app', '0002_category_images_recipe_category'),
+        ("recipes_app", "0002_category_images_recipe_category"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='category',
-            name='created_on',
+            model_name="category",
+            name="created_on",
             field=models.DateField(default=django.utils.timezone.now),
         ),
         migrations.AddField(
-            model_name='recipe',
-            name='created_on',
+            model_name="recipe",
+            name="created_on",
             field=models.DateField(default=django.utils.timezone.now),
         ),
         migrations.AddField(
-            model_name='user',
-            name='created_on',
+            model_name="user",
+            name="created_on",
             field=models.DateField(default=django.utils.timezone.now),
         ),
     ]
