@@ -19,8 +19,8 @@ Follow these steps to get the project up and running on your local machine.
 Clone the project repository from GitHub to your local machine.
 
 ```bash
-git clone https://github.com/jp-cortes/my-recipes.git my_recipes
-cd my_recipes
+git clone https://github.com/jp-cortes/my_recipes_django.git my_recipes_django
+cd my_recipes_django
 ```
 
 ### 2\. Set Up Virtual Environment
