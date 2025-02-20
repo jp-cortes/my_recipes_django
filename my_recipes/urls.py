@@ -22,8 +22,8 @@ from django.conf import settings
 from recipes_app.views import HomeView
 
 urlpatterns = [
+    path("", HomeView.as_view(), name="home"),
     path("admin/", admin.site.urls),
-    path("home/", HomeView.as_view(), name="home"),
     path("recipes/", include("recipes_app.urls")),
     path("users/", include("users.urls")),
     path("menus/", include("menus.urls")),
