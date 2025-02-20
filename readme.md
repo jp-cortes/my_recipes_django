@@ -53,7 +53,7 @@ Update the `.env` file with your database credentials and other necessary config
 Create the PostgreSQL database and apply migrations.
 
 ```bash
-psql -U postgres CREATE DATABASE coffeeshop;
+psql -U postgres CREATE DATABASE myrecipes;
 ```
 Apply migrations 
 
